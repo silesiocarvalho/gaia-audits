@@ -25,7 +25,9 @@ The tool connects to a Gaia R82 system (locally or remotely), collects relevant 
 Each control is categorized as:
 
 PASS → Configuration meets CIS requirements
+
 FAIL → Configuration does not meet requirements
+
 MANUAL REVIEW → Requires human validation
 
 # Installation
@@ -40,27 +42,17 @@ uv --version
 
 ## Create virtual environment
 uv venv .venv
+
 Using CPython 3.12.3 interpreter at: /usr/bin/python3
+
 Creating virtual environment at: .venv
+
 Activate with: source .venv/bin/activate
 
 silesio@ubuntu:~$ source .venv/bin/activate
 
 ## Install paramiko and Chek Point API python SDK
 (.venv) silesio@ubuntu:~$ uv pip install paramiko cp-mgmt-api-sdk
-Resolved 8 packages in 456ms
-Prepared 8 packages in 234ms
-Installed 8 packages in 23ms
- + bcrypt==5.0.0
- + cffi==2.0.0
- + cp-mgmt-api-sdk==1.9.0
- + cryptography==46.0.6
- + invoke==2.2.1
- + paramiko==4.0.0
- + pycparser==3.0
- + pynacl==1.6.2
-
-
 
 # Usage
 
@@ -82,11 +74,14 @@ python audit_tool.py -m 192.168.1.1 -u admin -p MyPass -o my_audit.json
 ======================================================================
 
   ── Password Policy ──
+
   [1.1   ] ❌ FAIL  Ensure Minimum Password Length is set to 14 or higher
            Expected : ≥ 14
            Actual   : 6
            Fix      : set password-controls min-password-length 14
+           
   [1.2   ] ✅ PASS  Ensure Disallow Palindromes is selected
+  
   [1.3   ] ❌ FAIL  Ensure Password Complexity is set to 3
            Expected : ≥ 3
            Actual   : 2
