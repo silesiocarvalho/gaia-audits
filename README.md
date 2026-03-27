@@ -29,7 +29,38 @@ FAIL → Configuration does not meet requirements
 MANUAL REVIEW → Requires human validation
 
 # Installation
-TBD
+## Install uv
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+## Add $HOME/.local/bin to your PATH
+source $HOME/.local/bin/env
+
+## Validate uv was installed sucessfully
+uv --version
+
+## Create virtual environment
+uv venv .venv
+Using CPython 3.12.3 interpreter at: /usr/bin/python3
+Creating virtual environment at: .venv
+Activate with: source .venv/bin/activate
+
+silesio@ubuntu:~$ source .venv/bin/activate
+
+## Install paramiko and Chek Point API python SDK
+(.venv) silesio@ubuntu:~$ uv pip install paramiko cp-mgmt-api-sdk
+Resolved 8 packages in 456ms
+Prepared 8 packages in 234ms
+Installed 8 packages in 23ms
+ + bcrypt==5.0.0
+ + cffi==2.0.0
+ + cp-mgmt-api-sdk==1.9.0
+ + cryptography==46.0.6
+ + invoke==2.2.1
+ + paramiko==4.0.0
+ + pycparser==3.0
+ + pynacl==1.6.2
+
+
 
 # Usage
 
